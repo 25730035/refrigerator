@@ -30,7 +30,6 @@ button,input,select,textarea{font-family:inherit}
 /* ---------- 상단바 ---------- */
 .top-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;height:var(--top);padding:0 16px;background:rgba(245,242,234,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--ln2)}
 .top-bar b{margin-right:auto;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
-.top-bar .logo{width:22px;height:26px;flex:none}
 .ic,.btn,.chip{font:inherit;color:inherit;cursor:pointer}
 .ic{border:1px solid var(--ln2);background:var(--pn);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600}
 
