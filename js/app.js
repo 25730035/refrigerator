@@ -44,7 +44,7 @@ document.addEventListener('click', e => {
 
 // 홈: 재료 칩 탭하면 삭제, 추천 칩 탭하면 추가, 2개 미만이면 검색 버튼 비활성
 // 보유 재료 토글(홈·레시피 화면 공용 flt.mineOnly): 재료가 없으면 자동으로 꺼짐
-function syncFind() { if (!myIngredients().length) flt.mineOnly = false; homeCount(); }
+function syncFind() { flt.mineOnly = myIngredients().length > 0; if (!flt.mineOnly) flt.allMine = false; homeCount(); }
 // 홈 검색·조건 → 레시피 화면으로. 조건은 flt 하나를 홈·레시피 화면이 같이 씀
 // 홈 「레시피 찾기」는 재료 기반만: 보유 재료가 들어간 레시피 수를 버튼에 보여주고, 누르면 레시피 화면을 '보유 재료만' 켠 채 연다 (검색어·조건은 레시피 화면에서)
 function homeCount() {
@@ -58,7 +58,6 @@ $('#home-go').addEventListener('click', () => {
   $('#rec-q').value = ''; Object.assign(flt, { category: null, time: null, level: null, method: null, flag: null, allMine: false });
   flt.mineOnly = myIngredients().length > 0; listShown = PAGE; go('list');
 });
-$('#hero-go').addEventListener('click', () => { $('#rec-q').value = ''; flt.mineOnly = false; listShown = PAGE; go('list'); });
 // 캐러셀(인기 요리 3장): 좌우 스와이프 + 점
 function makeCarousel(root, track, dots) {
   const st = { i: 0, n: 0 };
@@ -375,7 +374,7 @@ const SORTS = [['rel', '추천순'], ['time', '빨리 만드는 순'], ['made', 
 const LEVEL_ORDER = { '쉬움': 0, '보통': 1, '어려움': 2 };
 // 이 레시피로 만든 요리 게시물 수 (레시피 카드의 '좋아요' 대신 보여주는 값 — 좋아요는 요리 게시물에만 있음)
 const madeCount = id => posts.filter(p => p.recipeId === id).length;
-const flt = { category: null, time: null, level: null, method: null, flag: null, sort: 'rel', allMine: false, mineOnly: true };
+const flt = { category: null, time: null, level: null, method: null, flag: null, sort: 'rel', allMine: false, mineOnly: false };
 const PAGE = 30; let listShown = PAGE;
 
 const FILTER_LABEL = v => { for (const f of FILTER_DEF) { const o = f.opts.find(([k]) => k === v); if (o) return o[1]; } return v; };

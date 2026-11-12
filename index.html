@@ -54,7 +54,7 @@
 <!-- sprite:end -->
 <div class="app">
   <header class="top-bar">
-    <b data-go="home" style="cursor:pointer">냉장고 털이</b>
+    <b data-go="home" style="cursor:pointer"><svg class="logo" aria-hidden="true"><use href="#fridge"></use></svg>냉장고 털이</b>
     <button class="ic" data-go="login" id="top-login">로그인</button>
   </header>
 
@@ -73,11 +73,10 @@
       <!-- 레시피 찾기: 재료만. 히어로 안의 흰 카드 -->
       <div class="hero-find" id="home-search">
         <div class="hero-find-h"><b>레시피 찾기</b><span class="mu">집에 있는 재료 2개 이상</span></div>
-        <input class="in" id="ing-q" placeholder="재료 입력 후 Enter (예: 계란)" autocomplete="off">
-        <div class="row" id="mine"><span class="chip ing">계란 ✕</span><span class="chip ing">양파 ✕</span><span class="chip ing">김치 ✕</span></div>
+        <input class="in" id="ing-q" placeholder="보유 재료 입력 (예: 계란)" autocomplete="off" enterkeyhint="done">
+        <div class="row" id="mine"></div>
         <div class="row" id="suggest"></div>
         <button class="btn dk" id="home-go" type="button">레시피 보기</button>
-        <button class="hero-all" id="hero-go" type="button">재료 상관없이 전체 레시피 보러 가기 →</button>
       </div>
     </section>
 
